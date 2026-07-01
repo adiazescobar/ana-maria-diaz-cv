@@ -7,30 +7,30 @@
   <meta name="description" content="Academic CV of Ana María Díaz Escobar, Associate Professor of Economics at Pontificia Universidad Javeriana." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     /* ── Variables ── */
     :root {
-      --bg:        #f2f5f9;
+      --bg:        #FCFCFB;
       --surface:   #ffffff;
-      --border:    #dde3ed;
-      --text:      #1c2336;
-      --muted:     #6b7a90;
-      --accent:    #1d4ed8;
-      --accent-s:  rgba(29,78,216,.08);
-      --shadow:    0 1px 3px rgba(0,0,0,.07), 0 3px 8px rgba(0,0,0,.05);
-      --radius:    12px;
-      --radius-lg: 18px;
+      --border:    #E7E7E3;
+      --text:      #17181A;
+      --muted:     #6A6C70;
+      --accent:    #C0562F;
+      --accent-s:  rgba(192,86,47,.07);
+      --shadow: none;
+      --radius: 3px;
+      --radius-lg: 3px;
     }
     [data-theme="dark"] {
-      --bg:       #0e1525;
-      --surface:  #192035;
-      --border:   #2b3a52;
-      --text:     #dde6f4;
-      --muted:    #8799b2;
-      --accent:   #60a5fa;
-      --accent-s: rgba(96,165,250,.09);
-      --shadow:   0 1px 3px rgba(0,0,0,.35), 0 3px 8px rgba(0,0,0,.25);
+      --bg:       #16150F;
+      --surface:  #1E1D16;
+      --border:   #332F26;
+      --text:     #EDE8DC;
+      --muted:    #9C9585;
+      --accent:   #E0954A;
+      --accent-s: rgba(224,149,74,.12);
+      --shadow: none;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -38,7 +38,7 @@
       margin: 0; padding: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-family: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
       font-size: 15px;
       line-height: 1.6;
     }
@@ -143,6 +143,24 @@
     const t = localStorage.getItem('theme');
     if (t) document.documentElement.setAttribute('data-theme', t);
   </script>
+
+  <style>
+    :root { --mono:"JetBrains Mono",ui-monospace,monospace; --frame:#DADAD4; }
+    [data-theme="dark"] { --frame:#3A362B; }
+    body { -webkit-font-smoothing:antialiased; }
+    .wrap { position:relative; border:1px solid var(--frame); padding:2.4rem 2.4rem 2rem; }
+    .wrap::before,.wrap::after { content:"+"; position:absolute; font-family:var(--mono); color:var(--accent); font-size:.9rem; line-height:1; }
+    .wrap::before { top:-.55rem; left:-.46rem; }
+    .wrap::after { bottom:-.62rem; right:-.46rem; }
+    .card h2, .section-header { font-family:var(--mono); font-weight:500; letter-spacing:.12em; }
+    .chip,.tag,.filter-pill,.pub-link { border-radius:2px !important; }
+    .chip,.tag,.filter-pill { font-family:var(--mono); font-size:.68rem; }
+    .pub-link { font-family:var(--mono); font-size:.7rem; }
+    .btn,.back-link { font-family:var(--mono); font-weight:500; box-shadow:none; }
+    .card,.pub-card,.id { box-shadow:none; }
+    .name,.page-header h1 { font-weight:600; letter-spacing:-.02em; }
+    @media print { .wrap { border:none; padding:0; } .wrap::before,.wrap::after { content:none; } }
+  </style>
 </head>
 <body>
 <div class="wrap">
