@@ -159,11 +159,23 @@
     .btn,.back-link { font-family:var(--mono); font-weight:500; box-shadow:none; }
     .card,.pub-card,.id { box-shadow:none; }
     .name,.page-header h1 { font-weight:600; letter-spacing:-.02em; }
-    @media print { .wrap { border:none; padding:0; } .wrap::before,.wrap::after { content:none; } }
+    .id { background:none !important; border:none !important; box-shadow:none; padding:0; align-items:flex-start; }
+    .avatar { display:none; }
+    .top-bar { align-items:flex-start; gap:1.5rem; margin:.5rem 0 1.8rem; padding-bottom:1.6rem; border-bottom:1px solid var(--border); }
+    .name { font-size:clamp(2rem,4.5vw,3rem); line-height:1.04; letter-spacing:-.025em; }
+    .role { margin-top:.4rem; }
+    .chips { margin-top:.7rem; }
+    .metaline { font-family:var(--mono); font-size:.66rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; display:flex; justify-content:space-between; gap:1rem; border-bottom:1px solid var(--border); padding-bottom:.8rem; margin-bottom:1.6rem; }
+    @media print { .wrap { border:none; padding:0; } .wrap::before,.wrap::after { content:none; } .metaline { display:none; } }
   </style>
 </head>
 <body>
 <div class="wrap">
+
+  <div class="metaline">
+    <span>AMDE · Curriculum Vitae</span>
+    <span>Bogotá, CO · Jun 2026</span>
+  </div>
 
   <div class="top-bar">
     <div class="id">
@@ -282,6 +294,18 @@
           <a href="publications.html" style="font-weight:600">View complete list with abstracts →</a>
         </p>
         <div class="pub">
+          <div class="pub-title">What Job Would You Apply To? Findings on the Impact of Language on Job Searches</div>
+          with Luz Salas, Claudia Piras, and Agustina Suaya. <em>Gender, Work &amp; Organization</em>, 2026. DOI: 10.1111/gwao.70117
+        </div>
+        <div class="pub">
+          <div class="pub-title">Gender Disparities in Valuing Remote and Hybrid Work in Latin America</div>
+          with Luz M. Salas, Claudia Piras, and Agustina Suaya. <em>Journal of Development Effectiveness</em>, 2026.
+        </div>
+        <div class="pub">
+          <div class="pub-title">Hidden Biases: Misperceptions About Women's Labor Force Participation Among Couples in Colombia</div>
+          with Marie Boltz and Luz Salas. <em>Revue d'économie du développement</em>, 32: 57–66, 2025.
+        </div>
+        <div class="pub">
           <div class="pub-title">What Is the Price of Freedom? Estimating Women's Willingness to Pay for Job Flexibility</div>
           with Monserrat Bustelo, Claudia Piras, Jeanne Lafortune, José Tessada, and Luz Salas.
           <em>Economic Development and Cultural Change</em>, 71(4): 1179–1211, July 2023.
@@ -300,7 +324,7 @@
         </div>
         <div class="pub">
           <div class="pub-title">It Is Not What You Know but Who You Know: Heterogeneous Peer Effects at a Colombian University</div>
-          with Ignacio Penagos. <em>Revista Desarrollo y Sociedad</em>, 82, 2017.
+          with Ignacio Penagos. <em>Revista Desarrollo y Sociedad</em>, 80(2): 53–88, 2018.
         </div>
         <details>
           <summary>Show older publications</summary>
@@ -320,12 +344,26 @@
       </section>
 
       <section class="card">
+        <h2>Under Review — Revise &amp; Resubmit</h2>
+        <ul class="list">
+          <li>
+            <span class="item-title">Norms Behind Closed Doors: Misperceptions &amp; Maternal Employment in Colombia</span>
+            — with Marie Boltz, Monserrat Bustelo, and Agustina Suaya.
+            <span class="tag">R&amp;R</span> <em>Economic Development and Cultural Change</em>
+            <span class="muted"><a href="https://beta.u-strasbg.fr/WP/2025/2025-37.pdf" target="_blank" rel="noopener">BETA WP 2025-37</a></span>
+          </li>
+          <li>
+            <span class="item-title">Cycling Through Congestion: Does Bike Presence Actually Slow Cars Down?</span>
+            — with Diego Astorga-Rojas.
+            <span class="tag">R&amp;R</span> <em>Transportation Research Part A</em>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
         <h2>Working Papers</h2>
         <ul class="list">
-          <li><span class="item-title">Norms Behind Closed Doors: Misperceptions &amp; Maternal Employment in Colombia</span> — with Marie Boltz, Monserrat Bustelo, and Agustina Suaya. <span class="muted"><a href="https://beta.u-strasbg.fr/WP/2025/2025-37.pdf" target="_blank" rel="noopener">BETA WP 2025-37</a></span></li>
-          <li><span class="item-title">Gender Disparities in Valuing Remote and Hybrid Work in Latin America</span> — with Luz M. Salas Bahamón, Claudia Piras, and Agustina Suaya. <span class="muted"><a href="https://ideas.repec.org/p/idb/brikps/13439.html" target="_blank" rel="noopener">IDB WP 13439</a></span></li>
           <li><span class="item-title">Gender Differences in the Willingness to Pay for Flexible Work Arrangements among Workers in Latin America</span> — with Luz Salas, Claudia Piras, and Agustina Suaya. <span class="muted">Under revision</span>.</li>
-          <li><span class="item-title">What Job Would You Apply to? Findings on the Impact of Language on Job Searches</span> — with Luz Salas, Claudia Piras, and Agustina Suaya. <span class="muted"><a href="https://ideas.repec.org/p/idb/brikps/12819.html" target="_blank" rel="noopener">IDB WP 12819</a></span></li>
           <li><span class="item-title">Do Productive Workers Sort into Flexible Work Arrangements?</span> — with Marie Boltz, Bart Cockx, and Luz Salas. <span class="muted">Vniversitas Económica</span>.</li>
           <li><span class="item-title">Brecha de habilidades de los jóvenes en el mercado laboral colombiano</span> — with Luz Salas. <span class="muted">Vniversitas Económica</span>.</li>
           <li><span class="item-title">The Effect of Job Flexibility on Labor Market Productivity</span> — with Marie Boltz, Bart Cockx, and Luz Salas.</li>
@@ -337,7 +375,6 @@
       <section class="card">
         <h2>Research in Progress</h2>
         <ul class="list">
-          <li>Cycling Through Congestion: Does Bike Presence Actually Slow Cars Down? — with Diego Astorga.</li>
           <li>Misperceived Gender Norms and the Gender Gap in Labor Force Participation: Experimental Evidence from Couples in Colombia — with Marie Boltz, Monserrat Bustelo, and Agustina Suaya.</li>
           <li>Bridging the Gap: The Role of Flexibility in Promoting Gender Equality and Work‑Family Balance — with Luz Salas and Marie Boltz.</li>
           <li>Skill Mismatch and Labor Outcomes in Colombia — with Luz Salas and the Public Employment Service Unit.</li>
@@ -413,7 +450,7 @@
         </ul>
       </section>
 
-      <footer>Last updated: February 2026 · Bogotá, Colombia · © Ana María Díaz Escobar</footer>
+      <footer>Last updated: June 2026 · Bogotá, Colombia · © Ana María Díaz Escobar</footer>
 
     </main>
   </div>

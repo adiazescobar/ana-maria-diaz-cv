@@ -73,37 +73,30 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 1.25rem;
+      gap: 1.5rem;
+      margin: .5rem 0 1.8rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--border);
       flex-wrap: wrap;
     }
 
     /* ── Identity card ── */
     .id {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-      padding: 1.1rem 1.4rem;
+      background: none;
+      border: none;
+      box-shadow: none;
+      padding: 0;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 1rem;
       flex: 1;
       min-width: 0;
     }
-    .avatar {
-      width: 64px; height: 64px;
-      border-radius: 4px;
-      background: var(--accent);
-      color: #fff;
-      font-family: var(--mono);
-      font-size: 1.1rem;
-      font-weight: 500;
-      display: grid; place-items: center;
-      flex-shrink: 0;
-    }
+    .avatar { display: none; }
     .id-body { min-width: 0; }
-    .name  { font-size: 2rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+    .name  { font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 600; letter-spacing: -.025em; line-height: 1.04; }
+    .role  { margin-top: .4rem; }
+    .chips { margin-top: .7rem; }
     .role  { color: var(--muted); font-size: .92rem; margin-top: .2rem; }
     .chips { margin-top: .5rem; display: flex; flex-wrap: wrap; gap: .35rem; }
     .chip  {
@@ -263,7 +256,7 @@
 
   <div class="metaline">
     <span>AMDE · Curriculum Vitae</span>
-    <span>Bogotá, CO · Feb 2026</span>
+    <span>Bogotá, CO · Jun 2026</span>
   </div>
 
   <!-- ── Top bar ── -->
@@ -416,6 +409,18 @@
         </div>
 
         <div class="pub">
+          <div class="pub-title">Gender Disparities in Valuing Remote and Hybrid Work in Latin America</div>
+          with Luz M. Salas, Claudia Piras, and Agustina Suaya.
+          <em>Journal of Development Effectiveness</em>, 2026.
+        </div>
+
+        <div class="pub">
+          <div class="pub-title">Hidden Biases: Misperceptions About Women's Labor Force Participation Among Couples in Colombia</div>
+          with Marie Boltz and Luz Salas.
+          <em>Revue d'économie du développement</em>, 32: 57–66, 2025.
+        </div>
+
+        <div class="pub">
           <div class="pub-title">
             <a href="https://ideas.repec.org/a/ucp/ecdecc/doi10.1086-718645.html" target="_blank" rel="noopener">
               What Is the Price of Freedom? Estimating Women's Willingness to Pay for Job Flexibility
@@ -459,7 +464,7 @@
               It Is Not What You Know but Who You Know: Heterogeneous Peer Effects at a Colombian University
             </a>
           </div>
-          with Ignacio Penagos. <em>Revista Desarrollo y Sociedad</em>, 82, 2017.
+          with Ignacio Penagos. <em>Revista Desarrollo y Sociedad</em>, 80(2): 53–88, 2018.
         </div>
 
         <details>
@@ -484,21 +489,28 @@
       </section>
 
       <section class="card">
+        <h2>Under Review — Revise &amp; Resubmit</h2>
+        <ul class="list">
+          <li>
+            <span class="item-title">Norms Behind Closed Doors: Misperceptions &amp; Maternal Employment in Colombia</span>
+            — with Marie Boltz, Monserrat Bustelo, and Agustina Suaya.
+            <span class="tag">R&amp;R</span> <em>Economic Development and Cultural Change</em>
+            <span class="muted"><a href="https://beta.u-strasbg.fr/WP/2025/2025-37.pdf" target="_blank" rel="noopener">BETA WP 2025-37</a></span>
+          </li>
+          <li>
+            <span class="item-title">Cycling Through Congestion: Does Bike Presence Actually Slow Cars Down?</span>
+            — with Diego Astorga-Rojas.
+            <span class="tag">R&amp;R</span> <em>Transportation Research Part A</em>
+          </li>
+        </ul>
+      </section>
+
+      <section class="card">
         <h2>Working Papers</h2>
         <p style="font-size:.88rem; color:var(--muted); margin:0 0 .75rem">
           <a href="publications.html" style="font-weight:600">View complete list with abstracts →</a>
         </p>
         <ul class="list">
-          <li>
-            <span class="item-title">Norms Behind Closed Doors: Misperceptions &amp; Maternal Employment in Colombia</span>
-            — with Marie Boltz, Monserrat Bustelo, and Agustina Suaya.
-            <span class="muted"><a href="https://beta.u-strasbg.fr/WP/2025/2025-37.pdf" target="_blank" rel="noopener">BETA WP 2025-37</a></span>
-          </li>
-          <li>
-            <span class="item-title">Gender Disparities in Valuing Remote and Hybrid Work in Latin America</span>
-            — with Luz M. Salas Bahamón, Claudia Piras, and Agustina Suaya.
-            <span class="muted"><a href="https://ideas.repec.org/p/idb/brikps/13439.html" target="_blank" rel="noopener">IDB WP 13439</a></span>
-          </li>
           <li>
             <span class="item-title">Gender Differences in the Willingness to Pay for Flexible Work Arrangements among Workers in Latin America</span>
             — with Luz Salas, Claudia Piras, and Agustina Suaya. <span class="muted">Under revision</span>.
@@ -524,7 +536,6 @@
       <section class="card">
         <h2>Research in Progress</h2>
         <ul class="list">
-          <li>Cycling Through Congestion: Does Bike Presence Actually Slow Cars Down? — with Diego Astorga.</li>
           <li>Misperceived Gender Norms and the Gender Gap in Labor Force Participation: Experimental Evidence from Couples in Colombia — with Marie Boltz, Monserrat Bustelo, and Agustina Suaya.</li>
           <li>Bridging the Gap: The Role of Flexibility in Promoting Gender Equality and Work‑Family Balance — with Luz Salas and Marie Boltz.</li>
           <li>Skill Mismatch and Labor Outcomes in Colombia using matched job‑seeker/employer data from the Public Employment Service — with Luz Salas and the Public Employment Service Unit.</li>
@@ -600,7 +611,7 @@
         </ul>
       </section>
 
-      <footer>Last updated: February 2026 · Bogotá, Colombia · © Ana María Díaz Escobar</footer>
+      <footer>Last updated: June 2026 · Bogotá, Colombia · © Ana María Díaz Escobar</footer>
 
     </main>
   </div>
