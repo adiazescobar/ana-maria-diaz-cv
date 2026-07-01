@@ -226,14 +226,22 @@
     .btn,.back-link { font-family:var(--mono); font-weight:500; box-shadow:none; }
     .card,.pub-card,.id { box-shadow:none; }
     .name,.page-header h1 { font-weight:600; letter-spacing:-.02em; }
-    @media print { .page { border:none; padding:0; } .page::before,.page::after { content:none; } }
+    .metaline{ font-family:var(--mono); font-size:.66rem; color:var(--muted); letter-spacing:.06em; text-transform:uppercase; display:flex; justify-content:space-between; gap:1rem; border-bottom:1px solid var(--border); padding-bottom:.8rem; margin-bottom:1.4rem; }
+    @media print { .page { border:none; padding:0; } .page::before,.page::after { content:none; } .metaline{ display:none; } }
   </style>
 </head>
 <body>
 <div class="page">
 
+  <div class="metaline">
+    <span>AMDE · Publications</span>
+    <span>Bogotá, CO · Jun 2026</span>
+  </div>
   <div class="nav-bar">
-    <a href="index.html" class="back-link">← Back to CV</a>
+    <div style="display:flex;gap:.5rem;flex-wrap:wrap;">
+      <a href="https://www.adiazescobar.com/" class="back-link">← adiazescobar.com</a>
+      <a href="index.html" class="back-link">Back to CV</a>
+    </div>
     <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
   </div>
 
