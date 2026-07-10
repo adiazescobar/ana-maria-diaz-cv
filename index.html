@@ -24,17 +24,6 @@
       --radius-lg: 3px;
       --mono:      "JetBrains Mono", ui-monospace, monospace;
     }
-    [data-theme="dark"] {
-      --bg:       #16150F;
-      --surface:  #1E1D16;
-      --border:   #332F26;
-      --frame:    #3A362B;
-      --text:     #EDE8DC;
-      --muted:    #9C9585;
-      --accent:   #E0954A;
-      --accent-s: rgba(224,149,74,.12);
-      --shadow:   none;
-    }
 
     /* ── Reset & base ── */
     *, *::before, *::after { box-sizing: border-box; }
@@ -246,10 +235,6 @@
       .wrap::before, .wrap::after { content: none; }
     }
   </style>
-  <script>
-    const t = localStorage.getItem('theme');
-    if (t) document.documentElement.setAttribute('data-theme', t);
-  </script>
   <style>
     :root{ --display:"Fraunces",Georgia,serif; }
     body::before{ content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.03;
@@ -257,6 +242,72 @@
     .frame,.wrap,.page{ position:relative; z-index:1; }
     .page-header h1,.hero h1,.name,.pub-title,.pub-title a,.card-body h2{ font-family:var(--display) !important; font-weight:500; letter-spacing:-.012em; }
   </style>
+
+  <style>
+    /* ===== CV redesign: editorial sections + sticky index + motion ===== */
+    .wrap{max-width:1080px}
+
+    /* Cards -> editorial sections (kill the boxed look; hierarchy via rhythm, not boxes) */
+    .card{background:transparent;border:none;border-radius:0;box-shadow:none;padding:0}
+    aside{gap:2rem} main{gap:2.7rem}
+    .card h2{margin:0 0 1rem;font-family:var(--mono);font-size:.7rem;font-weight:500;
+      text-transform:uppercase;letter-spacing:.14em;color:var(--muted);
+      border-bottom:2px solid var(--text);padding-bottom:.55rem}
+    aside .card h2{border-bottom:1px solid var(--border)}
+    section[id],.card[id]{scroll-margin-top:1.4rem}
+
+    /* Two-column grid: sticky rail */
+    @media (min-width:861px){.grid{grid-template-columns:250px 1fr;gap:2.6rem}}
+    /* mobile: single column + tidy hero */
+    @media (max-width:860px){.id{flex:0 1 auto}}
+    @media (min-width:861px){
+      aside{position:sticky;top:1.4rem;align-self:start;
+        max-height:calc(100vh - 2.8rem);overflow:auto;padding-right:.5rem;scrollbar-width:thin}
+    }
+
+    /* In-page section index (built by JS) */
+    #cv-index ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0}
+    #cv-index a{display:grid;grid-template-columns:2ch 1fr;gap:.6rem;align-items:baseline;
+      padding:.3rem 0;color:var(--muted);font-size:.82rem;line-height:1.25;
+      border-top:1px solid var(--border);
+      transition:color .2s ease,padding-left .2s cubic-bezier(.22,.61,.36,1)}
+    #cv-index a:first-child{border-top:none}
+    #cv-index a .n{font-family:var(--mono);font-size:.68rem;color:var(--accent);opacity:.55}
+    #cv-index a:hover{color:var(--text);text-decoration:none;padding-left:.3rem}
+    #cv-index a.active{color:var(--accent)} #cv-index a.active .n{opacity:1}
+
+    /* Toolbar: one primary action, the rest quiet */
+    .btn{box-shadow:none}
+    .toolbar .btn:not(.primary){background:transparent;border-color:transparent;color:var(--muted);padding:.5rem .55rem}
+    .toolbar .btn:not(.primary):hover{color:var(--accent);background:transparent}
+
+    /* Entry format: scannable rows, Fraunces titles */
+    .pub{padding:.75rem 0}
+    .pub-title{font-family:var(--display);font-weight:500;font-size:1.04rem;letter-spacing:-.01em;line-height:1.25}
+    .pub-title a{border-bottom:none;color:inherit;
+      background-image:linear-gradient(var(--accent),var(--accent));background-size:0% 1px;
+      background-position:0 1.04em;background-repeat:no-repeat;
+      transition:background-size .25s cubic-bezier(.22,.61,.36,1),color .2s}
+    .pub-title a:hover{color:var(--accent);text-decoration:none;background-size:100% 1px}
+    .list li{line-height:1.5}
+    main .list .item-title{font-family:var(--display);font-weight:500;font-size:1rem;letter-spacing:-.01em}
+
+    /* Motion */
+    html.js-anim .reveal{opacity:0;transform:translateY(10px);filter:blur(6px)}
+    html.js-anim .reveal.is-in{opacity:1;transform:translateY(0);filter:blur(0);
+      transition:opacity .6s cubic-bezier(.22,.61,.36,1),transform .6s cubic-bezier(.22,.61,.36,1),filter .6s cubic-bezier(.22,.61,.36,1);
+      transition-delay:var(--r-delay,0ms)}
+    .btn,.tag,.chip{transition:color .2s,border-color .2s,background .2s,transform .12s ease}
+    .btn:active{transform:scale(.97)}
+    @media (prefers-reduced-motion:reduce){
+      html.js-anim .reveal{opacity:1;transform:none;filter:none}
+      #cv-index a{transition:none}
+    }
+  </style>
+  <script>
+    try{ if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      document.documentElement.classList.add('js-anim'); } }catch(e){}
+  </script>
 </head>
 <body>
 <div class="wrap">
@@ -284,11 +335,10 @@
     <div class="toolbar">
       <a href="https://www.adiazescobar.com/" class="btn">← adiazescobar.com</a>
       <a href="cv_eng.html" class="btn">English</a>
-      <a href="publications.html" class="btn primary">Publications</a>
       <a href="https://adiazescobar.github.io/libro-econometria/" target="_blank" rel="noopener" class="btn">Libro Econometría</a>
       <a href="https://adiazescobar.github.io/libro_cortes/" target="_blank" rel="noopener" class="btn">Libro Eco. Avanzada</a>
       <button class="btn" onclick="window.print()">Download PDF</button>
-      <button class="btn" onclick="toggleTheme()">Toggle Theme</button>
+      <a href="publications.html" class="btn primary">Publications</a>
     </div>
   </div>
 
@@ -362,11 +412,6 @@
 
     <!-- ── Main ── -->
     <main>
-
-      <div class="banner">
-        <span>Complete publications list with abstracts and links</span>
-        <a href="publications.html" class="btn primary">View Publications →</a>
-      </div>
 
       <section class="card">
         <h2>Academic Positions</h2>
@@ -622,14 +667,6 @@
   </div>
 </div>
 
-<script>
-  function toggleTheme() {
-    const cur = document.documentElement.getAttribute('data-theme') || 'light';
-    const next = cur === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-  }
-</script>
 
 <script type="application/ld+json">
 {
@@ -654,5 +691,86 @@
   ]
 }
 </script>
+
+<script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var animate = document.documentElement.classList.contains('js-anim') && !reduce && 'IntersectionObserver' in window;
+    var EASE = 'cubic-bezier(.22,.61,.36,1)';
+
+    // ---------- Build sticky section index from main section headings ----------
+    var main = document.querySelector('main');
+    var aside = document.querySelector('aside');
+    var linkById = {};
+    if (main && aside) {
+      var heads = Array.prototype.slice.call(main.querySelectorAll('h2'));
+      var nav = document.createElement('div');
+      nav.className = 'card'; nav.id = 'cv-index';
+      nav.innerHTML = '<h2>Sections</h2>';
+      var ol = document.createElement('ol');
+      heads.forEach(function (h, i) {
+        var sec = h.closest('section') || h.closest('.card') || h.parentElement;
+        var id = sec.id || ('sec-' + (i + 1));
+        sec.id = id;
+        var num = ('0' + (i + 1)).slice(-2);
+        var a = document.createElement('a');
+        a.href = '#' + id;
+        a.innerHTML = '<span class="n">' + num + '</span><span>' + h.textContent.trim() + '</span>';
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          sec.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+          history.replaceState(null, '', '#' + id);
+        });
+        ol.appendChild(a);
+        linkById[id] = a;
+      });
+      nav.appendChild(ol);
+      aside.insertBefore(nav, aside.firstChild);
+
+      // Active highlight (scroll-based, deterministic; defaults to section 01 at top)
+      var order = Object.keys(linkById);
+      function markActive() {
+        var line = Math.max(90, window.innerHeight * 0.2);
+        var current = order[0];
+        for (var i = 0; i < order.length; i++) {
+          var sec = document.getElementById(order[i]);
+          if (sec && sec.getBoundingClientRect().top - line <= 0) current = order[i]; else break;
+        }
+        order.forEach(function (id) { linkById[id].classList.toggle('active', id === current); });
+      }
+      window.addEventListener('scroll', markActive, { passive: true });
+      window.addEventListener('resize', markActive);
+      markActive();
+    }
+
+    // ---------- Staggered reveal on load + scroll ----------
+    var sel = ['.metaline', '.top-bar', '.banner', 'main .card'];
+    var items = [];
+    sel.forEach(function (s) {
+      document.querySelectorAll(s).forEach(function (el) { el.classList.add('reveal'); items.push(el); });
+    });
+    function settle(el, d) {
+      el.classList.add('is-in');
+      setTimeout(function () { el.classList.remove('reveal', 'is-in'); el.style.removeProperty('--r-delay'); }, (d || 0) + 700);
+    }
+    if (!animate) {
+      items.forEach(function (el) { el.classList.remove('reveal'); });
+    } else {
+      var io = new IntersectionObserver(function (entries, obs) {
+        entries.filter(function (e) { return e.isIntersecting; }).forEach(function (e, i) {
+          var d = Math.min(i, 6) * 55;
+          e.target.style.setProperty('--r-delay', d + 'ms');
+          settle(e.target, d);
+          obs.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
+      items.forEach(function (el) { io.observe(el); });
+      window.addEventListener('load', function () {
+        setTimeout(function () { items.forEach(function (el) { if (el.classList.contains('reveal')) settle(el, 0); }); }, 1500);
+      });
+    }
+  })();
+</script>
+
 </body>
 </html>
