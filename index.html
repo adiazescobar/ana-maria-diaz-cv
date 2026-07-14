@@ -303,6 +303,22 @@
       html.js-anim .reveal{opacity:1;transform:none;filter:none}
       #cv-index a{transition:none}
     }
+    @media print {
+      /* fix PDF: force revealed content visible, single column, drop rail/nav */
+      html.js-anim .reveal{opacity:1 !important;transform:none !important;filter:none !important}
+      body::before{display:none !important}
+      .toolbar,.metaline,#cv-index{display:none !important}
+      .grid{display:block !important}
+      aside{position:static !important;max-height:none !important;overflow:visible !important}
+      aside,main{gap:.7rem !important}
+      .card{break-inside:avoid;page-break-inside:avoid;margin-bottom:.4rem !important}
+      .card h2{margin-bottom:.5rem !important;border-bottom-width:1px !important}
+      .wrap{max-width:none;margin:0;padding:0;border:none}
+      .wrap::before,.wrap::after{content:none}
+      .timeline::before{background:#999 !important}
+      body{background:#fff;font-size:10.5pt}
+      a{color:inherit}
+    }
   </style>
   <script>
     try{ if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
